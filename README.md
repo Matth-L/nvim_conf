@@ -3,6 +3,7 @@
 ![dashboard](./img/dashboard.png)
 ![coding](./img/coding.png)
 ![terminal](./img/float_term.png)
+![split](./img/split_windows.png)
 
 ## Setup 
 
