@@ -1,4 +1,10 @@
-# Neovim Configuration
+# Neovim configuration
+
+## Setup 
+
+```sh
+git clone https://github.com/Matth-L/nvim_conf.git ~/.config/nvim
+```
 
 ## Plugins
 
