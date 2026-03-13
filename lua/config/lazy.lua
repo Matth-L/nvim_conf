@@ -76,9 +76,4 @@ end
 
 -- Show LSP hover on mouse over
 vim.opt.mousemoveevent = true
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		vim.lsp.buf.hover()
-	end,
-})
-vim.opt.updatetime = 500 -- delay before hover appears (ms)
+vim.opt.confirm = true -- ask instead of error when closing unsaved file

@@ -20,10 +20,7 @@ return {
 			vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 		end,
 	},
-	-- Syntax coloration
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	-- LSP (autocomplete, error, goto definition...)
-	{ "neovim/nvim-lspconfig" },
+
 	-- Fuzzy finder
 	{
 		"nvim-telescope/telescope.nvim",
@@ -36,6 +33,41 @@ return {
 			vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>") -- open buffers
 			require("which-key").add({
 				{ "<leader>f", group = "find" },
+			})
+		end,
+	},
+
+	-- Fast navigation
+	{
+		"folke/flash.nvim",
+		config = function()
+			require("flash").setup()
+			vim.keymap.set({ "n", "v" }, "s", function()
+				require("flash").jump()
+			end, { desc = "flash jump" })
+			vim.keymap.set({ "n", "v" }, "S", function()
+				require("flash").treesitter()
+			end, { desc = "flash treesitter" })
+			require("which-key").add({
+				{ "s", desc = "flash jump" },
+				{ "S", desc = "flash treesitter select" },
+			})
+		end,
+	},
+
+	-- Floating terminal
+	{
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("toggleterm").setup({
+				direction = "float",
+				float_opts = {
+					border = "curved",
+				},
+			})
+			vim.keymap.set("n", "<leader>to", ":ToggleTerm<CR>")
+			require("which-key").add({
+				{ "<leader>to", desc = "open terminal" },
 			})
 		end,
 	},
