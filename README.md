@@ -1,5 +1,9 @@
 # Neovim configuration
 
+[dashboard](./img/dashboard.png)
+[coding](./img/coding.png)
+[terminal](./img/float_term.png)
+
 ## Setup 
 
 ```sh
