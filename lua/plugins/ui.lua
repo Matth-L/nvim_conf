@@ -73,4 +73,31 @@ return {
 			vim.notify = notify -- replace default vim notifications
 		end,
 	},
+
+	-- Buffer tabs
+	{
+		"akinsho/bufferline.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("bufferline").setup()
+			vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
+			vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
+			vim.keymap.set("n", "<leader>x", ":bdelete<CR>")
+			vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "vertical split" })
+			vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "horizontal split" })
+			vim.keymap.set("n", "<leader>sc", "<C-w>c", { desc = "close split" })
+			-- Navigate between splits
+			vim.keymap.set("n", "<C-h>", "<C-w>h")
+			vim.keymap.set("n", "<C-l>", "<C-w>l")
+			vim.keymap.set("n", "<C-j>", "<C-w>j")
+			vim.keymap.set("n", "<C-k>", "<C-w>k")
+			require("which-key").add({
+				{ "<leader>s", group = "windows" },
+				{ "<leader>sv", desc = "vertical split" },
+				{ "<leader>sh", desc = "horizontal split" },
+				{ "<leader>sc", desc = "close split" },
+				{ "<leader>x", desc = "close buffer" },
+			})
+		end,
+	},
 }

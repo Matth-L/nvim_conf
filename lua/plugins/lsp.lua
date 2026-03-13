@@ -8,7 +8,11 @@ return {
 
 	{
 		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"neovim/nvim-lspconfig",
+			"nvim-tree/nvim-web-devicons",
+		},
 		config = function()
 			local servers = { "lua_ls", "ts_ls", "pyright" }
 
@@ -27,7 +31,7 @@ return {
 			vim.keymap.set("n", "<leader>rf", vim.lsp.buf.format)
 			vim.keymap.set("n", "<leader>ra", vim.lsp.buf.code_action)
 			require("which-key").add({
-				{ "<leader>r", group = "lsp" },
+				{ "<leader>r", group = "LSP" },
 				{ "<leader>rn", desc = "rename symbol" },
 				{ "<leader>rd", desc = "go to definition" },
 				{ "<leader>rr", desc = "references" },

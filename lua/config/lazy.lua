@@ -33,9 +33,9 @@ require("lazy").setup({
 
 ---
 vim.opt.colorcolumn = "80" -- vertical line at column 80
-
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.wrap = false
 
 -- Indentation
 vim.opt.smartindent = true
@@ -74,6 +74,7 @@ if os.getenv("SSH_TTY") then
 	}
 end
 
--- Show LSP hover on mouse over
+-- Show LSP hover on mouse over + mouse
 vim.opt.mousemoveevent = true
+vim.opt.mouse = "a" -- enable mouse in all modes
 vim.opt.confirm = true -- ask instead of error when closing unsaved file

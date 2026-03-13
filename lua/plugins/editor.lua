@@ -67,6 +67,7 @@ return {
 			})
 			vim.keymap.set("n", "<leader>to", ":ToggleTerm<CR>")
 			require("which-key").add({
+				{ "<leader>t", group = "Terminal/Trouble" },
 				{ "<leader>to", desc = "open terminal" },
 			})
 		end,
