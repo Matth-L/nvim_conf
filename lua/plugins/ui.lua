@@ -106,6 +106,11 @@ return {
 						{ desc = "  Config", action = "edit ~/.config/nvim/init.lua", key = "c" },
 						{ desc = "  Quit", action = "quit", key = "q" },
 					},
+					footer = {
+						  "",
+						  "  Be safe, friend. Don't you dare go Hollow.  ",
+						  "",
+						},
 				},
 			})
 		end,
