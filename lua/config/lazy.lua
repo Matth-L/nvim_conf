@@ -48,12 +48,6 @@ vim.opt.expandtab = true -- spaces instead of tabs
 vim.opt.swapfile = false
 vim.opt.backup = false
 
--- Remove trailing whitespace on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	command = "%s/\\s\\+$//e",
-})
-
 -- Move lines up/down with Alt+j/k or Alt+arrows
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
@@ -66,3 +60,25 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 
 -- clipboard
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
+if os.getenv("SSH_TTY") then
+	vim.g.clipboard = {
+		name = "OSC52",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		paste = {
+			["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+			["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+		},
+	}
+end
+
+-- Show LSP hover on mouse over
+vim.opt.mousemoveevent = true
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		vim.lsp.buf.hover()
+	end,
+})
+vim.opt.updatetime = 500 -- delay before hover appears (ms)

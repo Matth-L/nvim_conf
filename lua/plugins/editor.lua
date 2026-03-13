@@ -30,11 +30,13 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("telescope").setup()
-
 			vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>") -- find files
 			vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>") -- search in files
 			vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<CR>") -- recent files
 			vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>") -- open buffers
+			require("which-key").add({
+				{ "<leader>f", group = "find" },
+			})
 		end,
 	},
 }
