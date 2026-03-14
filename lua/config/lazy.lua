@@ -60,7 +60,12 @@ vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 
 -- clipboard
-vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
+if vim.fn.has("win32") == 1 then
+  vim.opt.clipboard = "unnamed"
+else
+  vim.opt.clipboard = "unnamedplus"
+end
+
 if os.getenv("SSH_TTY") then
 	vim.g.clipboard = {
 		name = "OSC52",
