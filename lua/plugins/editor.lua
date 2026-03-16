@@ -72,4 +72,19 @@ return {
 			})
 		end,
 	},
+
+	-- Surround
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup()
+			require("which-key").add({
+				{ "ys", desc = "surround add" },
+				{ "ds", desc = "surround delete" },
+				{ "cs", desc = "surround change" },
+			})
+		end,
+	},
 }
