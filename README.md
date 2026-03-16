@@ -15,6 +15,8 @@ git clone https://github.com/Matth-L/v_conf ~/
 ln -s ~/v_conf/nvim ~/.config/nvim
 # copy kitty conf
 ln -s ~/v_conf/kitty.conf ~/.config/kitty/kitty.conf
+# set default terminal to kitty
+sudo update-alternatives --config x-terminal-emulator
 ```
 
 ## Plugins

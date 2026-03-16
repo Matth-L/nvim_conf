@@ -32,7 +32,6 @@ require("lazy").setup({
 })
 
 ---
-vim.opt.colorcolumn = "80" -- vertical line at column 80
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -61,9 +60,9 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 
 -- clipboard
 if vim.fn.has("win32") == 1 then
-  vim.opt.clipboard = "unnamed"
+	vim.opt.clipboard = "unnamed"
 else
-  vim.opt.clipboard = "unnamedplus"
+	vim.opt.clipboard = "unnamedplus"
 end
 
 if os.getenv("SSH_TTY") then
